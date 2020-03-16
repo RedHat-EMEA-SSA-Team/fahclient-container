@@ -6,6 +6,7 @@ ENV FAH_VERSION_MINOR=7.5.1
 ENV FAH_VERSION_MAJOR=7.5
 ENV TEAM=0
 ENV POWER=full
+ENV GPU=false
 
 RUN dnf update -y && rm -rf /var/cache/yum
 RUN dnf install -y https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.5/fahclient-7.5.1-1.x86_64.rpm \
@@ -20,4 +21,4 @@ EXPOSE 7396
 
 USER 1001
 
-CMD FAHClient --web-allow=0/0:7396 --allow=0/0:7396 --user=Anonymous --team=$TEAM --gpu=false --smp=true --power=$POWER --log=/tmp/fahclient.log --chdir=/tmp
+CMD FAHClient --web-allow=0/0:7396 --allow=0/0:7396 --user=Anonymous --team=$TEAM --gpu=$GPU --smp=true --power=$POWER --log=/tmp/fahclient.log --chdir=/tmp
