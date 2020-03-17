@@ -7,6 +7,12 @@ https://foldingathome.org/2020/03/15/coronavirus-what-were-doing-and-how-you-can
 
 Using CentOS8 Base image on master branch for compatibility with their available [RPM](https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.5/)
 
+## Public Registry
+
+We put our image on [Quay.io](https://quay.io) public registry that you can use to pull the image. Quay has also build triggers and updates this image for each changes we push.
+
+https://quay.io/repository/redhat-emea-ssa-team/fahclient-container
+
 
 ## Build with Docker
 
@@ -24,15 +30,28 @@ $ buildah bud -t fahclient-centos8 .
 
 ```
 $ docker pull quay.io/redhat-emea-ssa-team/fahclient-container:latest
-$ docker run -e TEAM=<YOUR_TEAM_ID> -e GPU=<false|true> -ti quay.io/redhat-emea-ssa-team/fahclient-container:latest
+$ docker run --rm --name fahclient-centos8 -e TEAM=<YOUR_TEAM_ID> -e GPU=<false|true> -ti quay.io/redhat-emea-ssa-team/fahclient-container:latest
 ```
+Get the IP to connect
+
+```
+$ docker inspect --format '{{ .NetworkSettings.IPAddress }}' fahclient-centos8
+```
+
+Browse to `http://<IP>:7396`
 
 ## Run with Podman
 
 ```
 $ podman pull quay.io/redhat-emea-ssa-team/fahclient-container:latest
-$ podman run -e TEAM=<YOUR_TEAM_ID> -e GPU=<false|true> -ti quay.io/redhat-emea-ssa-team/fahclient-container:latest
+$ podman run --rm --name fahclient-centos8 -P -e TEAM=<YOUR_TEAM_ID> -e GPU=<false|true> -ti quay.io/redhat-emea-ssa-team/fahclient-container:latest
 ```
+Get port to connect to WebUI
+```
+$ podman port -l
+7396/tcp -> 0.0.0.0:33675
+```
+Browse to `http://localhost:<PORT>`
 
 # Run with Kubernetes
 
