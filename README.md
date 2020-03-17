@@ -19,15 +19,15 @@ $ buildah bud -t fahclient-centos8 .
 ## Run with Docker
 
 ```
-$ docker pull quay.io/bluesman/fahclient-centos8:latest
-$ docker run -e TEAM=<YOUR_TEAM_ID> -e GPU=<false|true> -ti quay.io/bluesman/fahclient-centos8:latest
+$ docker pull quay.io/redhat-emea-ssa-team/fahclient-container:latest
+$ docker run -e TEAM=<YOUR_TEAM_ID> -e GPU=<false|true> -ti quay.io/redhat-emea-ssa-team/fahclient-container:latest
 ```
 
 ## Run with Podman
 
 ```
-$ podman pull quay.io/bluesman/fahclient-centos8:latest
-$ podman run -e TEAM=<YOUR_TEAM_ID> -e GPU=<false|true> -ti quay.io/bluesman/fahclient-centos8:latest
+$ podman pull quay.io/redhat-emea-ssa-team/fahclient-container:latest
+$ podman run -e TEAM=<YOUR_TEAM_ID> -e GPU=<false|true> -ti quay.io/redhat-emea-ssa-team/fahclient-container:latest
 ```
 
 # Run with Kubernetes
@@ -37,7 +37,7 @@ If you run it on Kubernetes you have to take in consideration Anti-Affinity poli
 ## Run with OpenShift and OKD
 
 ```
-$ oc new-app https://github.com/blues-man/fahclient-container.git --name fahclient-centos8 --env  TEAM=<YOUR_TEAM_ID> --env GPU=<false|true>
+$ oc new-app https://github.com/RedHat-EMEA-SSA-Team/fahclient-container.git --name fahclient-centos8 --env  TEAM=<YOUR_TEAM_ID> --env GPU=<false|true>
 ```
 Access the WebUI via OpenShift Route:
 
@@ -50,7 +50,9 @@ Browse to: http://fahclient-centos8-<PROJECT_NAME>.apps.<CLUSTER_DOMAIN>
 
 ## Run on K8S
 
-Build the Container Image and push it to your registry, then deploy it:
+Build the Container Image and push it to your registry, then deploy it. 
+
+Example:
 
 ```
 apiVersion: apps/v1
@@ -71,12 +73,19 @@ spec:
     spec:
       containers:
       - name: fahclient-centos8
-        image: quay.io/bluesman/fahclient-centos8:latest
+        env:
+        - name: TEAM
+          value: '241379'
+        - name: GPU
+          value: 'false'
+        image: quay.io/redhat-emea-ssa-team/fahclient-container:latest
         ports:
         - containerPort: 7396
 ```
+
+Run it with kubectl (using default values for ENV):
 ```
-$ kubectl create -f fahclient-centos8.yaml
+$ kubectl create -f deployment.yaml
 ```
 
 # Join Tigers!

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fahclient-centos8
+  labels:
+    app: fahclient-centos8
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fahclient-centos8
+  template:
+    metadata:
+      labels:
+        app: fahclient-centos8
+    spec:
+      containers:
+      - name: fahclient-centos8
+        image: quay.io/redhat-emea-ssa-team/fahclient-container
+        ports:
+        - containerPort: 7396
+
