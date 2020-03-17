@@ -21,4 +21,4 @@ EXPOSE 7396
 
 USER 1001
 
-CMD FAHClient --web-allow=0/0:7396 --allow=0/0:7396 --user=Anonymous --team=$TEAM --gpu=$GPU --smp=true --power=$POWER --log=/tmp/fahclient.log --chdir=/tmp
+CMD FAHClient --web-allow=0/0:7396 --allow=0/0:7396 --user=Anonymous --team=$TEAM --gpu=$GPU --smp=true --power=$POWER --chdir=/tmp
