@@ -42,7 +42,7 @@ Access the WebUI via OpenShift Route:
 $ oc expose svc/fahclient-centos8
 ```
 
-Browse to: fahclient-centos8-<PROJECT_NAME>.apps.<CLUSTER_DOMAIN>
+Browse to: http://fahclient-centos8-<PROJECT_NAME>.apps.<CLUSTER_DOMAIN>
 
 
 ## Run on K8S
