@@ -3,6 +3,10 @@ Dockerfile for containerized FAHClient rootless and K8S ready to help [Folding@H
 
 https://foldingathome.org/2020/03/15/coronavirus-what-were-doing-and-how-you-can-help-in-simple-terms/
 
+## Base image
+
+Using CentOS8 Base image on master branch for compatibility with their available [RPM](https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.5/)
+
 
 ## Build with Docker
 
