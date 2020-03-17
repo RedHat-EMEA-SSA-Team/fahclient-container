@@ -31,8 +31,14 @@ $ docker run -e TEAM=<YOUR_TEAM_ID> -e GPU=<false|true> -ti quay.io/redhat-emea-
 
 ```
 $ podman pull quay.io/redhat-emea-ssa-team/fahclient-container:latest
-$ podman run -e TEAM=<YOUR_TEAM_ID> -e GPU=<false|true> -ti quay.io/redhat-emea-ssa-team/fahclient-container:latest
+$ podman run --rm -d -P -e TEAM=<YOUR_TEAM_ID> -e GPU=<false|true> -ti quay.io/redhat-emea-ssa-team/fahclient-container:latest
 ```
+Get port to connect to WebUI
+```
+$ podman port -l
+7396/tcp -> 0.0.0.0:33675
+```
+Browse to http://localhost:<PORT>
 
 # Run with Kubernetes
 
