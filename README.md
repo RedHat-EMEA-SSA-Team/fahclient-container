@@ -1,7 +1,8 @@
 # fahclient-container
-Dockerfile for containerized FAHClient rootless and K8S ready to help research against COVID-19
-https://foldingathome.org/
+Dockerfile for containerized FAHClient rootless and K8S ready to help [Folding@Home project](https://foldingathome.org/) research against [COVID-19](https://en.wikipedia.org/wiki/Coronavirus_disease_2019)
+
 https://foldingathome.org/2020/03/15/coronavirus-what-were-doing-and-how-you-can-help-in-simple-terms/
+
 
 ## Build with Docker
 
