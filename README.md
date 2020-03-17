@@ -1,5 +1,7 @@
 # fahclient-container
-Dockerfile for containerized FAHClient rootless and K8S ready https://foldingathome.org/
+Dockerfile for containerized FAHClient rootless and K8S ready to help research against COVID-19
+https://foldingathome.org/
+https://foldingathome.org/2020/03/15/coronavirus-what-were-doing-and-how-you-can-help-in-simple-terms/
 
 ## Build with Docker
 
@@ -75,3 +77,9 @@ spec:
 ```
 $ kubectl create -f fahclient-centos8.yaml
 ```
+
+# Join Tigers!
+
+If you want to join our [Redhat-EMEA-SSA team](https://stats.foldingathome.org/team/241379) you can just our team id **241379** in your container environment, or just in your config.xml if you don't use it as container.
+
+
