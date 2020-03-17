@@ -30,7 +30,7 @@ $ buildah bud -t fahclient-centos8 .
 
 ```
 $ docker pull quay.io/redhat-emea-ssa-team/fahclient-container:latest
-$ docker run --rm --name fahclient-centos8 -e TEAM=<YOUR_TEAM_ID> -e GPU=<false|true> -ti quay.io/redhat-emea-ssa-team/fahclient-container:latest
+$ docker run --rm --name fahclient-centos8 -e USER=<YOUR_FAH_USERNAME> -e PASSKEY=<YOUR_FAH_PASSKEY> -e TEAM=<YOUR_TEAM_ID> -e POWER=<light|medium|full> -e GPU=<false|true> -ti quay.io/redhat-emea-ssa-team/fahclient-container:latest
 ```
 Get the IP to connect
 
@@ -44,7 +44,7 @@ Browse to `http://<IP>:7396`
 
 ```
 $ podman pull quay.io/redhat-emea-ssa-team/fahclient-container:latest
-$ podman run --rm --name fahclient-centos8 -P -e TEAM=<YOUR_TEAM_ID> -e GPU=<false|true> -ti quay.io/redhat-emea-ssa-team/fahclient-container:latest
+$ podman run --rm --name fahclient-centos8 -P -e USER=<YOUR_FAH_USERNAME> -e PASSKEY=<YOUR_FAH_PASSKEY> -e TEAM=<YOUR_TEAM_ID> -e POWER=<light|medium|full> -e GPU=<false|true> -ti quay.io/redhat-emea-ssa-team/fahclient-container:latest
 ```
 Get port to connect to WebUI
 ```
