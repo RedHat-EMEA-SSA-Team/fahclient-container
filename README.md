@@ -62,6 +62,9 @@ If you run it on Kubernetes you have to take in consideration Anti-Affinity poli
 ```
 $ oc new-app https://github.com/RedHat-EMEA-SSA-Team/fahclient-container.git --name fahclient-centos8 --env  TEAM=<YOUR_TEAM_ID> --env GPU=<false|true>
 ```
+
+![OCP Screenshot](/images/ocp-folding.png)
+
 Access the WebUI via OpenShift Route:
 
 ```
@@ -69,6 +72,8 @@ $ oc expose svc/fahclient-centos8
 ```
 
 Browse to: http://fahclient-centos8-<PROJECT_NAME>.apps.<CLUSTER_DOMAIN>
+
+![OCP Route Screenshot](/images/webui-route.png)
 
 
 ## Run on K8S
@@ -98,7 +103,7 @@ spec:
       - name: fahclient-centos8
         env:
         - name: TEAM
-          value: '241379'
+          value: '11812'
         - name: GPU
           value: 'false'
         image: quay.io/redhat-emea-ssa-team/fahclient-container:latest
@@ -111,8 +116,8 @@ Run it with kubectl (using default values for ENV):
 $ kubectl create -f deployment.yaml
 ```
 
-# Join Tigers!
+# Join us!
 
-If you want to join our [Redhat-EMEA-SSA team](https://stats.foldingathome.org/team/241379) you can just our team id **241379** in your container environment, or just in your config.xml if you don't use it as container.
+If you want to join our [Redhat team](https://stats.foldingathome.org/team/11812) you can just our team id **11812** in your container environment, or just in your config.xml if you don't use it as container.
 
 
