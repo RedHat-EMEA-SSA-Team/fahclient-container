@@ -4,6 +4,7 @@ MAINTAINER Natale Vinto <nvinto@redhat.com>
 
 ENV FAH_VERSION_MINOR=7.5.1
 ENV FAH_VERSION_MAJOR=7.5
+ENV USER=Anonymous
 ENV TEAM=0
 ENV POWER=full
 ENV GPU=false
@@ -21,4 +22,4 @@ EXPOSE 7396
 
 USER 1001
 
-CMD FAHClient --web-allow=0/0:7396 --allow=0/0:7396 --user=Anonymous --team=$TEAM --gpu=$GPU --smp=true --power=$POWER --chdir=/tmp
+CMD FAHClient --web-allow=0/0:7396 --allow=0/0:7396 --user=$USER --team=$TEAM --gpu=$GPU --smp=true --power=$POWER --chdir=/tmp
